@@ -1,6 +1,7 @@
 # CreditCard-Fraud-Detection
 
-Problem Statement
+PROBLEM STATEMENT
+
 • Credit card fraud occurs when someone uses another person’s credit card or
 account information to make unauthorized purchases or access funds. It is a
 significant problem for banks, businesses, and customers, leading to financial
@@ -15,7 +16,9 @@ that can automatically detect suspicious transactions in real time. The system
 should maximize detection of fraudulent activities while minimizing
 incorrect alerts, helping financial institutions reduce losses and protect
 customers from fraud.
-Objectives
+
+OBJECTIVES
+
 1. Detect Fraudulent Transactions: Build a system that can accurately
 identify credit card transactions that are fraudulent.
 2. Minimize False Positives: Reduce the number of legitimate transactions
