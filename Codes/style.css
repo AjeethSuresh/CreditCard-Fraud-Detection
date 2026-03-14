@@ -1,0 +1,178 @@
+/* Import modern Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+/* The glowing animated background */
+.stApp {
+    background: linear-gradient(-45deg, #0a0f1c, #1a1025, #081221, #130a1c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Outfit', sans-serif;
+    color: #e2e8f0;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Glassmorphism Containers - Custom wrapper around main elements */
+.glass-panel {
+    background: rgba(17, 25, 40, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 25px;
+    height: 100%;
+}
+.glass-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+h1 {
+    background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    text-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
+}
+
+/* Streamlit Input field overrides to fit glass theme */
+.stNumberInput > div > div > input,
+.stSelectbox > div > div > div {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 8px 15px !important;
+    font-family: 'Outfit', sans-serif !important;
+    transition: all 0.3s ease !important;
+}
+.stNumberInput > div > div > input:focus,
+.stSelectbox > div > div > div:focus {
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Fix selectbox dropdown arrow and text color */
+.stSelectbox span, .stNumberInput label, .stTimeInput label {
+    color: #cbd5e1 !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Hide number input spin buttons (+/-) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* The Primary Action Button */
+.stButton > button {
+    background: linear-gradient(90deg, #4f46e5, #9333ea, #ec4899);
+    background-size: 200% auto;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 30px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    box-shadow: 0 0 20px #8b5cf644;
+    width: 100%;
+    text-transform: uppercase;
+}
+.stButton > button:hover {
+    background-position: right center; /* trigger gradient animation */
+    color: white;
+    text-decoration: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 30px #ec4899aa;
+}
+
+/* Result Gauge Card */
+.result-card {
+    background: rgba(10, 15, 28, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(40px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.result-icon {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    animation: pulseHeart 2s infinite;
+    display: inline-block;
+}
+
+@keyframes pulseHeart {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* Streamlit Tabs override */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+.stTabs [data-baseweb="tab"] {
+    color: #94a3b8;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+}
+.stTabs [aria-selected="true"] {
+    color: #f8fafc !important;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 10px 20px;
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.02);
+    border-bottom: 3px solid #c084fc;
+}
+
+/* Progress bar styling */
+.stProgress > div > div > div > div {
+    background-image: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+    border-radius: 10px;
+}
